@@ -6,11 +6,11 @@
   <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
   <ul class="nav__items">
     {% for nav in navigation %}
+      <details>
+      <summary class="nav__sub-title">{{ nav.title }}</summary>
       <li>
         {% if nav.url %}
           <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title">{{ nav.title }}</span></a>
-        {% else %}
-          <span class="nav__sub-title">{{ nav.title }}</span>
         {% endif %}
 
         {% if nav.children != null %}
@@ -21,6 +21,7 @@
         </ul>
         {% endif %}
       </li>
+      </details>
     {% endfor %}
   </ul>
 </nav>
